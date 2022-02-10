@@ -9,7 +9,7 @@ export default async function signIn(request, response) {
         const user = response.locals.user;
 
         const usersCollection = db.collection("users");
-        const userLogin = await usersCollection.findOne({email: user.email});
+        const userLogin = await usersCollection.findOne({email: user.email.toLowerCase()});
 
         if(!userLogin){
             response.sendStatus(401);

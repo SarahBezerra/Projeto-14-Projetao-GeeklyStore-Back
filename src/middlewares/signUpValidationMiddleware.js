@@ -1,10 +1,10 @@
 import signUpFormSchema from "../schemas/signUpFormSchema.js";
 import db from "../db.js";
 
-export default function signUpValidationSchemaMiddlware(request, response, next){
+export default async function signUpValidationSchemaMiddlware(request, response, next){
 
     try {
-
+        console.log("ok")
         const user = request.body;
         const validation = signUpFormSchema.validate(user, {abortEarly:false});
 
