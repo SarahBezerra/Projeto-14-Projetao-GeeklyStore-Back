@@ -27,7 +27,7 @@ export default async function signIn(request, response) {
                     userId: userLogin._id
                 }, {$set: {token: token}})
             
-                response.status(200).send(token);
+                response.status(200).send({...user, token: token});
                 return;
             
             }
