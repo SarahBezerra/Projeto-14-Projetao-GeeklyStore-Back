@@ -1,8 +1,9 @@
 import { Router } from "express";
-// importar rota
+import signInRouter from "./signInRouter";
+
 
 const router = Router();
 
-router.use(/*usar rota*/)
+router.use(signInRouter);
 
 export default router;
