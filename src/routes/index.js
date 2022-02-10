@@ -1,8 +1,7 @@
 import { Router } from "express";
-// importar rota
+import productsRouter from "./productsRouter.js";
 
 const router = Router();
 
-router.use(/*usar rota*/)
-
+router.use(productsRouter)
 export default router;
