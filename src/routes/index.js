@@ -1,5 +1,5 @@
 import { Router } from "express";
-import CheckoutRouter from "./CheckoutRouter.js";
+import checkoutRouter from "./checkoutRouter.js";
 import signInRouter from "./signInRouter.js";
 import signUpRouter from "./signUpRouter.js";
 
@@ -9,6 +9,6 @@ const router = Router();
 
 router.use(signInRouter);
 router.use(signUpRouter);
-router.use(CheckoutRouter);
+router.use(checkoutRouter);
 
 export default router;
