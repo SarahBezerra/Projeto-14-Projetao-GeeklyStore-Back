@@ -29,7 +29,6 @@ export default async function signIn(request, response) {
 
                 delete userLogin.password;
                 delete userLogin.confirmPassword;
-                delete userLogin.email;
                 delete userLogin._id
                 response.status(200).send({...userLogin, token: token});
                 return;
@@ -39,7 +38,6 @@ export default async function signIn(request, response) {
             await db.collection("sessions").insertOne({token, userId: userLogin._id})
             delete userLogin.password;
             delete userLogin.confirmPassword;
-            delete userLogin.email;
             delete userLogin._id
             response.status(200).send({...userLogin, token: token});
             return;
