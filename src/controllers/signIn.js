@@ -34,7 +34,7 @@ export default async function signIn(request, response) {
 
             await db.collection("sessions").insertOne({token, userId: userLogin._id})
     
-            response.status(200).send(token);
+            response.status(200).send({...user, token: token});
             return;
         }
 
