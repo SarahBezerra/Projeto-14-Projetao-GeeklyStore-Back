@@ -26,15 +26,22 @@ export default async function signIn(request, response) {
                 await db.collection("sessions").updateOne({
                     userId: userLogin._id
                 }, {$set: {token: token}})
-            
-                response.status(200).send({...user, token: token});
+
+                delete userLogin.password;
+                delete userLogin.confirmPassword;
+                delete userLogin.email;
+                delete userLogin._id
+                response.status(200).send({...userLogin, token: token});
                 return;
             
             }
 
             await db.collection("sessions").insertOne({token, userId: userLogin._id})
-    
-            response.status(200).send(token);
+            delete userLogin.password;
+            delete userLogin.confirmPassword;
+            delete userLogin.email;
+            delete userLogin._id
+            response.status(200).send({...userLogin, token: token});
             return;
         }
 
