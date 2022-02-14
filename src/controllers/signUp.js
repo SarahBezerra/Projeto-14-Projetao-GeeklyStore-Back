@@ -10,11 +10,14 @@ export default async function signUp (request, response){
 
         const usersCollection = db.collection("users");
         const userData = await usersCollection.insertOne({...user, email: user.email.toLowerCase(), password: passwordHashed});
-
+        
         if(!userData){
             response.sendStatus(401);
             return;
         }
+
+        const shoppingCartCollection = db.collection("shoppingCarts");
+        await shoppingCartCollection.insertOne({ userId: userData.insertedId, products: [] });
 
         response.sendStatus(200);
         
