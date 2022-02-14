@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid"
 import { text } from "express";
 
 export async function getAllProducts(req, res) {
+
     const products = await db.collection("allProducts").find().toArray();
 
     res.send(products).status(200)

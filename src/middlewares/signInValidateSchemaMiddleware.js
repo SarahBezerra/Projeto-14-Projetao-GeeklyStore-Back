@@ -6,6 +6,7 @@ export default function signInValidateSchemaMiddleware(request, response, next){
     const validation = signInFormSchema.validate(user, {abortEarly:false});
 
     if(validation.error){
+        
         response.sendStatus(422);
         return;
     }
