@@ -3,7 +3,6 @@ import { v4 as uuid } from "uuid"
 import db from "../db.js"
 
 export default async function signIn(request, response) {
-
     try {
 
         const user = response.locals.user;
