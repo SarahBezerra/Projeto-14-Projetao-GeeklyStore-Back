@@ -11,7 +11,6 @@ router.use(productsRouter);
 router.use(signInRouter);
 router.use(signUpRouter);
 router.use(checkoutRouter);
-router.use(productsRouter);
 
 
 export default router;
