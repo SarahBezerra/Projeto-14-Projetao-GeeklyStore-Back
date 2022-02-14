@@ -4,7 +4,7 @@ import smtp from "../config/smtp.js";
 
 export default async function checkout(request, response){
     try {
-
+        const email = request.body.email
         const transporter = nodemailer.createTransport({
             host: smtp.host,
             port: smtp.port,
@@ -19,10 +19,10 @@ export default async function checkout(request, response){
         });
 
         await transporter.sendMail({
-            text: "teste",
-            subject: "teste",
+            text: "Sua compra foi confirmada com sucesso!",
+            subject: "Confirmação da compra",
             from: "Geekly Store <geeklystorenoreply@gmail.com>",
-            to: "luishenrinquebraga@gmail.com"
+            to: email
         })
 
         response.sendStatus(200);
