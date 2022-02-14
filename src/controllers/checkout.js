@@ -3,8 +3,10 @@ import smtp from "../config/smtp.js";
 
 
 export default async function checkout(request, response){
+    
     try {
         const email = request.body.email
+
         const transporter = nodemailer.createTransport({
             host: smtp.host,
             port: smtp.port,
